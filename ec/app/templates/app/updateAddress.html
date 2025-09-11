@@ -1,0 +1,88 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %}Pizza{% endblock title %}
+{% block main-content %}
+
+<div class="container my-5">
+    <div class="row mb-4">
+        <h3 class="text-center">Welcome, <span class="text-capitalize">{{ request.user }}</span></h3>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-3 border-end">
+            <ul class="list-unstyled">
+                <li class="d-grid mb-3">
+                    <a href="{% url 'profile' %}" class="btn btn-outline-primary">Profile</a>
+                </li>
+                <li class="d-grid">
+                    <a href="{% url 'address' %}" class="btn btn-primary">Address</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-4 offset-md-1">
+            <div class="row">
+                <div class="col-sm-8 offset-sm-2 mb-2">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="card shadow-sm border-0" style="background-color: #f8f9fa;">
+                            <div class="card-body">
+                                {% for fm in form %}
+                                <div class="mb-3">
+                                    <label class="form-label">{{ fm.label_tag }}</label>
+                                    {{ fm }}
+                                    <small class="text-danger">{{ fm.errors|striptags }}</small>
+                                </div>
+                                {% endfor %}
+                                <div class="row justify-content-center mt-3">
+                                    <div class="col-md-4">
+                                        <button type="submit" class="btn btn-primary btn-block">Update</button>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="{% url 'address' %}" class="btn btn-danger btn-block">Back</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        
+
+<style>
+    .card {
+        transition: transform 0.2s;
+    }
+    .card:hover {
+        transform: scale(1.05);
+    }
+    .btn-outline-primary {
+        background: linear-gradient(45deg, #6c757d, #343a40);
+        color: white;
+        border: none;
+    }
+    .btn-outline-primary:hover {
+        background: linear-gradient(45deg, #343a40, #6c757d);
+    }
+    .btn-primary {
+        background: linear-gradient(45deg, #007bff, #6610f2);
+        border: none;
+    }
+    .btn-primary:hover {
+        background: linear-gradient(45deg, #6610f2, #007bff);
+    }
+    .btn-danger {
+        background: linear-gradient(45deg, #dc3545, #bd2130);
+        border: none;
+    }
+    .btn-danger:hover {
+        background: linear-gradient(45deg, #bd2130, #dc3545);
+    }
+</style>
+
+{% endblock main-content %}

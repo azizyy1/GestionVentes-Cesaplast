@@ -1,0 +1,89 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %}Address{% endblock title %}
+
+{% block main-content %}
+<div class="container my-5">
+    <div class="row mb-4">
+        <h3 class="text-center">Welcome, <span class="text-capitalize">{{ request.user.username }}</span></h3>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-3 border-end">
+            <ul class="list-unstyled">
+                <li class="d-grid mb-3">
+                    <a href="{% url 'profile' %}" class="btn btn-outline-primary">Profile</a>
+                </li>
+                <li class="d-grid">
+                    <a href="{% url 'address' %}" class="btn btn-primary">Address</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-8 offset-md-1">
+            <div class="row">
+                {% for ad in add %}
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm border-0" style="background-color: #f8f9fa;">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">Address {{ forloop.counter }}</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text"><strong>Name:</strong> {{ ad.name }}</p>
+                            <p class="card-text"><strong>Locality:</strong> {{ ad.locality }}</p>
+                            <p class="card-text"><strong>Mobile:</strong> {{ ad.mobile }}</p>
+                            <p class="card-text"><strong>City:</strong> {{ ad.city }}</p>
+                            <p class="card-text"><strong>Boulevard:</strong> {{ ad.boulevard }}</p>
+                            <p class="card-text"><strong>ZipCode:</strong> {{ ad.zipcode }}</p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="{% url 'updateAddress' pk=ad.id %}" class="btn btn-success">Update</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .container {
+        background-color: #e9ecef;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    .card {
+        transition: transform 0.2s;
+    }
+    .card:hover {
+        transform: scale(1.05);
+    }
+    .card-header {
+        background: linear-gradient(45deg, #007bff, #6610f2);
+        color: white;
+    }
+    .btn-outline-primary {
+        background: linear-gradient(45deg, #6c757d, #343a40);
+        color: white;
+        border: none;
+    }
+    .btn-outline-primary:hover {
+        background: linear-gradient(45deg, #343a40, #6c757d);
+    }
+    .btn-primary {
+        background: linear-gradient(45deg, #007bff, #6610f2);
+        border: none;
+    }
+    .btn-primary:hover {
+        background: linear-gradient(45deg, #6610f2, #007bff);
+    }
+    .btn-success {
+        background: linear-gradient(45deg, #28a745, #218838);
+        border: none;
+    }
+    .btn-success:hover {
+        background: linear-gradient(45deg, #218838, #28a745);
+    }
+</style>
+{% endblock main-content %}
