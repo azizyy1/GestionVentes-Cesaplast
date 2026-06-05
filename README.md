@@ -49,6 +49,24 @@ Ce projet propose une solution informatique simple et organisée permettant à l
 - Travail dans un contexte professionnel
 - Autonomie, rigueur et résolution de problèmes
 
+
+## 📄 Rapport du Projet
+
+Le rapport complet du projet est disponible ici :
+
+🔗 https://drive.google.com/drive/folders/1HFkXOOeuUTBg-yFqPM6yau-AocBtr-dk?usp=sharing
+
+Il contient :
+
+* L’analyse du projet
+* Les diagrammes UML
+* Les choix techniques
+* Les captures d’écran
+* Les fonctionnalités principales
+* L’architecture de l’application
+
+
+
 ## Structure du projet
 
 ```text
@@ -65,17 +83,4 @@ Cesaplast-PFA/
 │
 └── README.md
 
-## 📄 Rapport du Projet
 
-Le rapport complet du projet est disponible ici :
-
-🔗 https://drive.google.com/drive/folders/1HFkXOOeuUTBg-yFqPM6yau-AocBtr-dk?usp=sharing
-
-Il contient :
-
-* L’analyse du projet
-* Les diagrammes UML
-* Les choix techniques
-* Les captures d’écran
-* Les fonctionnalités principales
-* L’architecture de l’application
